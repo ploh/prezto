@@ -70,7 +70,7 @@ zle -N down-line-or-local-history
 
 
 ##### JENV
-eval "$(jenv init -)"
+# eval "$(jenv init -)"
 
 
 if [ $commands[kubectl] ]; then
