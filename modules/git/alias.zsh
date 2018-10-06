@@ -91,8 +91,8 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gdi='git status --porcelain --short --ignored | sed -n "s/^!! //p"'
 
   # Fetch (f)
-  alias gf='git fetch'
-  alias gfa='git fetch --all'
+  alias gf='git fetch --prune'
+  alias gfa='git fetch --all --prune'
   alias gfc='git clone'
   alias gfcr='git clone --recurse-submodules'
   alias gfm='git pull'
