@@ -34,9 +34,9 @@ alias a="$EDITOR ~/.zshrc && source ~/.zshrc"
 alias llh="ll -H"
 alias lah="ll -H"
 
-alias homessh="ssh -C -X peter@$HOMESERVER"
+alias homessh="ssh -C -X peter@homeserver"
 alias homesync="rsync -avzP -e 'ssh -l peter'"
-alias homemount='sshfs peter@$HOMESERVER:/ ~/private/homeserver -o reconnect -o transform_symlinks -C -o idmap=user'
+alias homemount='sshfs peter@homeserver:/ /homeserver -o reconnect -o transform_symlinks -C -o idmap=user'
 
 alias ec2ssh="ssh -i ~/.ssh/wmt-test-key.pem -t -l centos $EC2SERVER"
 
@@ -48,6 +48,8 @@ alias gitgui="nohup git gui &"
 alias -g err=" 2>&1 "
 alias -g gre=" | grep -i "
 alias -g les=" | less "
+
+alias -g homeserver="qt8olldmd4ctxyhv.myfritz.net"
 
 ######  Local history for up/down arrow keys
 up-line-or-local-history() {
