@@ -22,7 +22,7 @@ gds() {
 # added by Anaconda3 5.0.1 installer
 export PATH="$HOME/bin:/opt/miniconda/bin:$PATH"
 
-export EDITOR="open -Wn"
+export EDITOR="subl -w"
 
 export HOMESERVER="qt8olldmd4ctxyhv.myfritz.net"
 export EC2SERVER="ec2-34-242-173-230.eu-west-1.compute.amazonaws.com"
