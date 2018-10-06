@@ -10,4 +10,69 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+
+########## Customize to your needs...
+
+##### Functions
+gds() {
+  git difftool "stash@{${1:-0}}^..stash@{${1:-0}}"
+}
+
+##### Exports
+# added by Anaconda3 5.0.1 installer
+export PATH="/Users/peterl/bin:/Users/peterl/anaconda3/bin:$PATH"
+
+export EDITOR="open -Wn"
+
+export HOMESERVER="qt8olldmd4ctxyhv.myfritz.net"
+export EC2SERVER="ec2-34-242-173-230.eu-west-1.compute.amazonaws.com"
+
+
+##### Aliases
+alias a="$EDITOR ~/.zshrc && source ~/.zshrc"
+
+alias llh="ll -H"
+alias lah="ll -H"
+
+alias homessh="ssh -C -X peter@$HOMESERVER"
+alias homesync="rsync -avzP -e 'ssh -l peter'"
+alias homemount='sshfs peter@$HOMESERVER:/ ~/private/homeserver -o reconnect -o transform_symlinks -C -o idmap=user'
+
+alias ec2ssh="ssh -i ~/.ssh/wmt-test-key.pem -t -l centos $EC2SERVER"
+
+alias gall="nohup gitk --all --date-order &"
+alias gone="nohup gitk --date-order &"
+
+alias gitgui="nohup git gui &"
+
+alias -g err=" 2>&1 "
+alias -g gre=" | grep -i "
+alias -g les=" | less "
+
+######  Local history for up/down arrow keys
+up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+}
+zle -N up-line-or-local-history
+down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+}
+zle -N down-line-or-local-history
+
+#bindkey '^[OA' up-line-or-local-history     # Cursor up
+#bindkey '^[OB' down-line-or-local-history   # Cursor down
+#bindkey '^[[1;2A' up-line-or-history    # Shift + Cursor up
+#bindkey '^[[1;2B' down-line-or-history  # Shift + Cursor down
+
+
+##### JENV
+eval "$(jenv init -)"
+
+
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
